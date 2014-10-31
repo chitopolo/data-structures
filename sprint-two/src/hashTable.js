@@ -7,30 +7,16 @@ HashTable.prototype.insert = function(k, v){
 
   var i = getIndexBelowMaxForKey(k, this._limit);
   var tupal = [k, v];
-
-
-  if(this._storage.get(i)){
-    var ret = this._storage.get(i);
-    ret.push(tupal);
-
-    this._storage.set(i, ret);
-
-    var test = this._storage.get(i);
-       // debugger;
-
-   }else{
-
+  if(!this._storage.get(i)){
+    //nothing at storage at position
     var bucket = [];
     bucket.push(tupal);
-    var test = bucket;
-
-
-
-    this._storage.set(i, bucket);
-
-    var test = this._storage.get(i);
-    // debugger;
+    
+   }else{
+    bucket = this._storage.get(i);
    }
+   bucket.push(tupal);
+   this._storage.set(i, bucket);
 
 
 };
