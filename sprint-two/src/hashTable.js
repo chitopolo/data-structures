@@ -12,12 +12,24 @@ HashTable.prototype.insert = function(k, v){
   if(this._storage.get(i)){
     var ret = this._storage.get(i);
     ret.push(tupal);
+
     this._storage.set(i, ret);
+
+    var test = this._storage.get(i);
+       // debugger;
+
    }else{
 
     var bucket = [];
     bucket.push(tupal);
+    var test = bucket;
+
+
+
     this._storage.set(i, bucket);
+
+    var test = this._storage.get(i);
+    // debugger;
    }
 
 
@@ -25,22 +37,22 @@ HashTable.prototype.insert = function(k, v){
 
 HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
-
   var name = this._storage.get(i);
-  var last_name = name[0][1];
-  return last_name;
+
+  //debugger;
+  return name[0][1];
 
 };
 
 HashTable.prototype.remove = function(k){
    var i = getIndexBelowMaxForKey(k, this._limit);
-    var res = this._storage.get(3);
+     var res = this._storage.get(i);
 
 
 
     this._storage.set(i, null);
     var res = this._storage.get(i);
-    debugger;
+      debugger;
     console.log('deleting this: '+res);
 
 };
