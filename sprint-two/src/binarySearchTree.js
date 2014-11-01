@@ -20,7 +20,7 @@ binaryTreeMethods.insert = function(value){
 
 
 	var curRoot = this;
-	if(value > curRoot.value)
+	//if(value > curRoot.value)
 
 
 
