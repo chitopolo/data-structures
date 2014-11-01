@@ -16,21 +16,23 @@ treeMethods.contains = function(target){
 
   var found = false;
 
-  var contains = walkTheDOM(this, function(node){
-    if(node.value === target){
-        found = true;
-        return true;
-      }
-      return false;
-   });
+  var contains = walkTheDOM(this, target);
+
+  // var contains = walkTheDOM(this, function(node){
+  //   if(node.value === target){
+  //       found = true;
+  //       return true;
+  //     }
+  //     return false;
+  //  });
 
   return found;
 
 };
 
-  function walkTheDOM(node, func) {
-      var cont = func(node);
-      if(cont === true){
+  function walkTheDOM(node, target) {
+    ;
+      if(node.value === target){
         return true;
       }
 
@@ -45,22 +47,26 @@ treeMethods.contains = function(target){
       return false;
   }
 
-// function childHas(node, target){
-//   node = node || this;
 
-//   if(node.value = target){
-//     return true;
-//   }
 
-//   if(node.children.length > 0){
-//     for(var i = 0; i < node.children.length; i++){
-//       if
-//     }
-    
-//   }
+  // function walkTheDOM(node, func) {
+  //     var cont = func(node);
+  //     if(cont === true){
+  //       return true;
+  //     }
 
-//   return false;
-// }
+  //     node = node.children[0];
+  //     var i = 1;
+  //     while (node) {
+
+  //         walkTheDOM(node, func);
+  //         node = node.children[i]; //next sibling
+  //         i++;
+  //     }
+  //     return false;
+  // }
+
+
 
 
 
