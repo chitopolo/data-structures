@@ -14,18 +14,20 @@ treeMethods.addChild = function(value){
 
 treeMethods.contains = function(target){
 
-   debugger;
+  var found = false;
 
   var contains = walkTheDOM(this, function(node){
-      if(node.value === target){
+    if(node.value === target){
+        found = true;
         return true;
       }
       return false;
    });
 
-  return contains;
+  return found;
 
-  
+};
+
   function walkTheDOM(node, func) {
       var cont = func(node);
       if(cont === true){
@@ -35,13 +37,32 @@ treeMethods.contains = function(target){
       node = node.children[0];
       var i = 1;
       while (node) {
+
           walkTheDOM(node, func);
           node = node.children[i]; //next sibling
           i++;
       }
       return false;
   }
-};
+
+// function childHas(node, target){
+//   node = node || this;
+
+//   if(node.value = target){
+//     return true;
+//   }
+
+//   if(node.children.length > 0){
+//     for(var i = 0; i < node.children.length; i++){
+//       if
+//     }
+    
+//   }
+
+//   return false;
+// }
+
+
 
 
 /*
